@@ -1,5 +1,5 @@
 # dcdiabetes
-Machine learning to predict the onset of diabetes
+Flask app using machine learning to predict the onset of diabetes.
 
 App is [here](https://dcdiabetes.herokuapp.com/) on Heroku.
 
