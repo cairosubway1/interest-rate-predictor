@@ -8,19 +8,17 @@ def index():
 	
 	return render_template('index.html')
 
-@app.route('/getprediction', methods=['POST','GET'])
+@app.route('/getprediction', methods=['POST'])
 def get_prediction():
-		
-	if request.method == 'POST':
-		bmi = request.form.get("BMI")
-		age = request.form.get("Age")
+	bmi = request.form.get("BMI")
+	age = request.form.get("Age")
 
-		bmi = float(bmi)
-		age = float(age)
-		x_factors = [bmi, age]
+	bmi = float(bmi)
+	age = float(age)
+	x_factors = [bmi, age]
 	
-		model = joblib.load('trained_diabetes_model.pkl')
-		prediction = model.predict(x_factors)
+	model = joblib.load('trained_diabetes_model.pkl')
+	prediction = model.predict(x_factors)
 	return render_template('result.html', prediction = prediction)
 
 if __name__ == '__main__':
